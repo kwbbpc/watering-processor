@@ -2,11 +2,10 @@
 
 exports.parse = function(e, err){
 
-    try{
-        var body = e.body;
-    }catch(e){
-        err("Could not parse http body: " + JSON.stringify(e));
-    }
+    console.log("Got body: " + e.body);
+
+    var body = JSON.parse(e.body);
+    
     
     var success = true;
     success = success && body.runTimeMs !== undefined;
